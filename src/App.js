@@ -29,15 +29,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h3>Todo</h3>
-      <button onClick={() => setInputDisabled(!isInputDisabled)}>+</button>
+        Todo
+        <button onClick={() => setInputDisabled(!isInputDisabled)}>+</button>
       </header>
-      <input type="text" ref={inputEl} disabled={isInputDisabled} value={inputValue} onChange={handleInputChange} onKeyPress={addItem} />
+      <ul>
       {todoList.map(todo=>{
-        return <div>
+        return <li>
                 {todo}
-              </div>
+              </li>
       })}
+      <li>
+        <input type="text" ref={inputEl} disabled={isInputDisabled} value={inputValue} onChange={handleInputChange} onKeyPress={addItem} />
+      </li>
+      </ul>
     </div>
   );
 }
