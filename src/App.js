@@ -1,24 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const [todoList, setTodoList] = useState([])
+
+  const addItem = (e) => {
+    if (e.key === "Enter"){
+      console.log(e.target.value);
+      setTodoList([...todoList, e.target.value])
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <input type="text" onKeyPress={(e) => addItem(e)} />
+      {todoList.map(todo=>{
+        return <div>
+                {todo}
+              </div>
+      })}
     </div>
   );
 }
