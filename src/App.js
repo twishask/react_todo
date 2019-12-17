@@ -17,7 +17,7 @@ function App() {
       console.log(e.target.value);
       setTodoList([...todoList, e.target.value])
       setInputValue("")
-      setInputDisabled(!isInputDisabled)
+  //    setInputDisabled(!isInputDisabled)
     }
   }
 
