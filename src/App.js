@@ -17,10 +17,12 @@ function App() {
       console.log(e.target.value);
       setTodoList([...todoList, e.target.value])
       setInputValue("")
-  //    setInputDisabled(!isInputDisabled)
     }
   }
-
+  const disable = (e) => {
+    console.log("blur");
+    setInputDisabled(!isInputDisabled)
+  }
   const handleInputChange = (e) => {
     setInputValue(e.target.value)
   }
@@ -38,7 +40,7 @@ function App() {
               </li>
       })}
       <li>
-        <input type="text" ref={inputEl} disabled={isInputDisabled} value={inputValue} onChange={handleInputChange} onKeyPress={addItem} />
+        <input type="text" ref={inputEl} disabled={isInputDisabled} value={inputValue} onChange={handleInputChange} onBlur={disable} onKeyPress={addItem} />
       </li>
       </ul>
     </div>
